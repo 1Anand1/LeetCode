@@ -8,30 +8,21 @@
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
 
-        l1=len(word1)
-        l2=len(word2)
+        merged_string = []
+        i=j=0
 
-        
-        # Getting delta in size of strings if any
-        
-        spaces=abs(l1-l2)
-        if l1>l2:
-            word2=word2+' '*spaces
-        elif l2>l1:
-            word1=word1+' '*spaces
-        
-        # Iterating through max length
-        
-        max_len=max(l1,l2)
-        lst=[]
-        for each_index in range(max_len):
-            lst.append(word1[each_index])
-            lst.append(word2[each_index])
-        
-        merged_string=''.join(lst)
-        merged_string=merged_string.replace(' ','')
-        
-        return merged_string
+        while i < len(word1) and j < len(word2) :
+            merged_string.append(word1[i])
+            merged_string.append(word2[j])
+            i+=1
+            j+=1
+
+        if i < len(word1) :
+            merged_string.extend(word1[i:])
+        if j < len(word2) :
+            merged_string.extend(word2[j:])
+
+        return ''.join(merged_string)
         
 # @lc code=end
 
