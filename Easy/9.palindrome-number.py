@@ -9,6 +9,11 @@
 # @lc code=start
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        
+
+        if str(abs(x))[::-1]==str(abs(x)) and x>=0:
+            return True
+        else:
+            return False
+
 # @lc code=end
 
